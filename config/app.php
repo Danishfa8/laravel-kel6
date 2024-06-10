@@ -176,7 +176,10 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+<<<<<<< HEAD
         Barryvdh\DomPDF\ServiceProvider::class
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 
     ],
 
@@ -190,7 +193,11 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
     'aliases' => [
 
         'App' => Illuminate\Support\Facades\App::class,
@@ -229,7 +236,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'PDF' => Barryvdh\DomPDF\Facade::class,
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 
     ],
 

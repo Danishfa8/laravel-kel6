@@ -1,6 +1,9 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Livewire\Items;
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +27,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/items', function () {
     return view('items');
+<<<<<<< HEAD
 })->name('items');
 
 Route::get('/jenis_pajak/{jenis_pajak}', [Items::class, 'pajak_pdf']) -> name('jenis_pajak');
 
 Route::get('/pajak_pdf', [Items::class, 'pajak_pdf']);
+=======
+})->name('items');
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9

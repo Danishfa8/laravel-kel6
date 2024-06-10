@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "dc066b6a28bb7985abe2b5806170c513",
+=======
+    "content-hash": "43d0f2a5ca6dd5615663048ae0829c46",
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,6 +121,7 @@
             "time": "2022-12-07T17:46:57+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "barryvdh/laravel-dompdf",
             "version": "v2.1.1",
             "source": {
@@ -194,6 +199,8 @@
             "time": "2024-03-15T12:48:39+00:00"
         },
         {
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             "name": "brick/math",
             "version": "0.11.0",
             "source": {
@@ -610,6 +617,7 @@
             "time": "2022-02-28T11:07:21+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "dompdf/dompdf",
             "version": "v2.0.8",
             "source": {
@@ -672,6 +680,8 @@
             "time": "2024-04-29T13:06:17+00:00"
         },
         {
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             "name": "dragonmantank/cron-expression",
             "version": "v3.3.3",
             "source": {
@@ -2366,6 +2376,7 @@
             "time": "2023-08-11T04:02:34+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "masterminds/html5",
             "version": "2.9.0",
             "source": {
@@ -2433,6 +2444,8 @@
             "time": "2024-03-31T07:05:07+00:00"
         },
         {
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             "name": "mobiledetect/mobiledetectlib",
             "version": "2.8.45",
             "source": {
@@ -3042,6 +3055,7 @@
             "time": "2022-06-14T06:56:20+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "phenx/php-font-lib",
             "version": "0.5.6",
             "source": {
@@ -3132,6 +3146,8 @@
             "time": "2024-04-08T12:52:34+00:00"
         },
         {
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             "name": "phpoption/phpoption",
             "version": "1.9.2",
             "source": {
@@ -3971,6 +3987,7 @@
             "time": "2023-11-08T05:53:05+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "sabberworm/php-css-parser",
             "version": "v8.5.1",
             "source": {
@@ -4036,6 +4053,8 @@
             "time": "2024-02-15T16:41:13+00:00"
         },
         {
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             "name": "swiftmailer/swiftmailer",
             "version": "v6.3.0",
             "source": {

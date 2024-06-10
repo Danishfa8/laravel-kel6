@@ -2,12 +2,18 @@
 
 namespace App\Http\Livewire;
 
+<<<<<<< HEAD
 use App\Models\Item;
 use Livewire\Component;
 use App\Models\JenisPajak;
 use Livewire\WithPagination;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
+=======
+use Livewire\Component;
+use App\Models\Item;
+use Livewire\WithPagination;
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 
 class Items extends Component
 {
@@ -20,10 +26,14 @@ class Items extends Component
     public $item = []; // Use an empty array for item creation
 
     public $confirmingItemDeletion = false;
+<<<<<<< HEAD
     public $confirmingItemAddEdit = false;
     public $showingItem = false;
     public $jenisPajakOptions;
     public $selectedJenisPajak;
+=======
+    public $confirmingItemAdd = false;
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 
     protected $queryString = [
         'active' => ['except' => false],
@@ -32,6 +42,7 @@ class Items extends Component
         'sortAsc' => ['except' => true],
     ];
 
+<<<<<<< HEAD
     public function mount()
     {
         $this->jenisPajakOptions = JenisPajak::all();
@@ -54,6 +65,15 @@ class Items extends Component
 
         return $rules;
     }
+=======
+    protected $rules = [
+        'item.kode_pajak' => 'required|string|unique:items,kode_pajak', // Enforce unique kode_pajak
+        'item.nama_pajak' => 'required|string',
+        'item.deskripsi' => 'nullable|string',
+        'item.tarif_pajak' => 'required|numeric|', // Adjust decimal range as needed
+        'item.tanggal_berlaku' => 'required|date',
+    ];
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 
     public function render()
     {
@@ -62,19 +82,31 @@ class Items extends Component
                 return $query->where(function ($query) {
                     $query->where('kode_pajak', 'like', '%' . $this->q . '%')
                         ->orWhere('nama_pajak', 'like', '%' . $this->q . '%')
+<<<<<<< HEAD
                         ->orWhere('jenis_pajak', 'like', '%' . $this->q . '%')
                         ->orWhere('deskripsi', 'like', '%' . $this->q . '%');
                 });
             })
             ->when($this->active, function ($query) {
                 return $query->active();
+=======
+                        ->orWhere('deskripsi', 'like', '%' . $this->q . '%'); // Search all relevant fields
+                });
+            })
+            ->when($this->active, function ($query) {
+                return $query->active(); // Assuming an 'active' scope exists in Item model
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
             })
             ->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC');
 
         $items = $items->paginate(10);
 
         return view('livewire.items', [
+<<<<<<< HEAD
             'items' => $items,            
+=======
+            'items' => $items,
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
         ]);
     }
 
@@ -96,6 +128,7 @@ class Items extends Component
         $this->sortBy = $field;
     }
 
+<<<<<<< HEAD
     public function confirmItemAction($itemId = null)
     {
         $this->reset(['item']);
@@ -108,6 +141,8 @@ class Items extends Component
         $this->confirmingItemAddEdit = true;
     }
 
+=======
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
     public function confirmItemDeletion($id)
     {
         $this->confirmingItemDeletion = $id;
@@ -120,6 +155,7 @@ class Items extends Component
         session()->flash('message', 'Item Deleted Successfully');
     }
 
+<<<<<<< HEAD
     public function saveItem()
     {
         $this->item['tarif_pajak'] = preg_replace('/[^0-9]/', '', $this->item['tarif_pajak']);
@@ -175,4 +211,61 @@ class Items extends Component
     {
         $pajak = JenisPajak::all();
     }
+=======
+    public function confirmItemAdd()
+    {
+        $this->reset(['item']); // Clear item data for new creation
+        $this->confirmingItemAdd = true;
+    }
+
+    public function confirmItemEdit(Item $item)
+    {
+        $this->resetErrorBag();
+        $this->item = $item->toArray(); // Convert model to array for form binding
+        $this->confirmingItemAdd = true;    
+    }
+
+    public $showingItem = false;
+
+    public function show(Item $item)
+    {
+        $this->resetErrorBag();
+        $this->item = $item->toArray(); // Convert model to array for form binding
+        $this->showingItem = true;    
+    }
+
+    public function saveItem()
+{
+    // Menyiapkan aturan validasi
+    $rules = [
+        'item.kode_pajak' => 'required|string', // Kode pajak harus diisi
+        'item.nama_pajak' => 'required|string',
+        'item.deskripsi' => 'nullable|string',
+        'item.tarif_pajak' => 'required|numeric',
+        'item.tanggal_berlaku' => 'required|date',
+    ];
+
+    // Jika sedang menambahkan item baru, tambahkan aturan unik untuk kode_pajak
+    if (!isset($this->item['id'])) {
+        $rules['item.kode_pajak'] .= '|unique:items,kode_pajak';
+    }
+
+    // Validasi data sesuai aturan yang telah disiapkan
+    $this->validate($rules);
+
+    // Melakukan pengecekan apakah sedang mengedit item atau menambahkan item baru
+    if (isset($this->item['id'])) {
+        $item = Item::find($this->item['id']);
+        $item->update($this->item); // Update item yang ada
+        session()->flash('message', 'Item Updated Successfully');
+    } else {
+        auth()->user()->items()->create($this->item); // Buat item baru untuk pengguna
+        session()->flash('message', 'Item Added Successfully');
+    }
+
+    $this->confirmingItemAdd = false;
+}
+
+
+>>>>>>> 9939541fdbddec7dea304a149db9b835e026c4d9
 }
